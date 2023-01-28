@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import Flex from "../components/Flex";
 import SectionForm from "../components/form/SectionForm";
+import Progressbar from "../components/Progressbar";
 import Stack from "../components/Stack";
 import { questionSections } from "../data/questionSections";
 import { styled } from "../theme";
@@ -31,9 +32,11 @@ const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
     setQuestionIndex(questionIndex + 1);
   };
 
+  const progress = ((questionIndex + 1) / questionSections.length) * 100;
+
   return (
-    <Stack css={{ gap: "4.8rem" }}>
-      {/* progressbar */}
+    <Stack css={{ gap: "4.8rem", alignItems: "center" }}>
+      <Progressbar progress={progress} />
       <QuestionCount>{`QUESTION ${questionIndex + 1} / ${
         questionSections.length
       }`}</QuestionCount>
