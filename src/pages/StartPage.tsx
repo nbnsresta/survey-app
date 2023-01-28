@@ -1,5 +1,6 @@
 import Button from "../components/Button";
 import Stack from "../components/Stack";
+import Subtext from "../components/Subtext";
 import { styled } from "../theme";
 
 interface IStartPageProps {
@@ -8,19 +9,11 @@ interface IStartPageProps {
 
 const Heading = styled("h1", {
   fontWeight: 600,
-  fontSize: "$xl",
+  fontSize: "$xxl",
   lineHeight: "6.4rem",
   textAlign: "center",
   color: "$midnight",
   maxWidth: "80rem",
-});
-
-const Subtext = styled("p", {
-  fontFamily: "Roboto",
-  fontWeight: 400,
-  fontSize: "$md",
-  lineHeight: "28px",
-  color: "$midnight",
 });
 
 const RequestText = styled("p", {

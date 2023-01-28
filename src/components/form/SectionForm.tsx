@@ -2,6 +2,7 @@ import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { IQuestionSection } from "../../data/questionSections";
 import { styled } from "../../theme";
 import Stack from "../Stack";
+import Subtext from "../Subtext";
 import Field from "./Field";
 
 interface IProps {
@@ -45,6 +46,7 @@ const SectionForm = ({ section, defaultValues, onSubmit }: IProps) => {
           css={{ rowGap: "2.4rem", alignItems: "center", maxWidth: "72rem" }}
         >
           <QuestionHeading>{primaryQuestion.label}</QuestionHeading>
+          {primaryQuestion.hint && <Subtext>{primaryQuestion.hint}</Subtext>}
         </Stack>
         <Field question={primaryQuestion} />
       </Stack>

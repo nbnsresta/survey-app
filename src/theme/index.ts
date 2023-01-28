@@ -7,7 +7,8 @@ export const { createTheme, styled } = createStitches({
       midnight: "#161E35",
     },
     fontSizes: {
-      xl: "5.4rem",
+      xxl: "5.4rem",
+      xl: "4.2rem",
       lg: "3.2rem",
       md: "1.8rem",
       sm: "1.2rem",
