@@ -1,5 +1,5 @@
 import { IQuestionData } from "../interfaces/IQuestionData";
-import { IQuestionField } from "../interfaces/IQuestionField";
+import { IQuestionSection } from "../interfaces/IQuestionSection";
 import { choices } from "./choices";
 
 const getOptionsByName = (
@@ -127,27 +127,6 @@ export const questionRecord: Record<string, IQuestionData> = {
     label: "Other",
   },
 };
-
-interface ICondition {
-  questionId: string;
-  value: string;
-}
-type IQuestionFormatted = IQuestionField;
-
-export type IQuestionSection = {
-  name: `section_${string}`;
-} & (
-  | {
-      if: {
-        condition: ICondition;
-        question: IQuestionField;
-      };
-      else: {
-        question: IQuestionField;
-      };
-    }
-  | { question: IQuestionFormatted }
-);
 
 export const questionSections: IQuestionSection[] = [
   {

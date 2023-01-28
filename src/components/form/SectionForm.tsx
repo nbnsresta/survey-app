@@ -1,5 +1,5 @@
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
-import { IQuestionSection } from "../../data/questionSections";
+import { IQuestionSection } from "../../interfaces/IQuestionSection";
 import Heading2 from "../Heading2";
 import Stack from "../Stack";
 import Subtext from "../Subtext";
