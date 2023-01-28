@@ -4,6 +4,7 @@ import Heading2 from "../Heading2";
 import Stack from "../Stack";
 import Subtext from "../Subtext";
 import Field from "./Field";
+import Subquestion from "./Subquestion";
 
 interface IProps {
   section: IQuestionSection;
@@ -40,6 +41,13 @@ const SectionForm = ({ section, defaultValues, onSubmit }: IProps) => {
           {primaryQuestion.hint && <Subtext>{primaryQuestion.hint}</Subtext>}
         </Stack>
         <Field question={primaryQuestion} />
+
+        {section.subquestions && section.subquestions.length > 0 ? (
+          <Subquestion
+            primaryQuestionName={primaryQuestion.name}
+            subquestions={section.subquestions}
+          />
+        ) : null}
       </Stack>
     </FormProvider>
   );

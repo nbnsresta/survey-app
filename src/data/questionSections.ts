@@ -168,11 +168,24 @@ export const questionSections: IQuestionSection[] = [
   },
   {
     name: "section_applinks",
-    question: { name: "applinks", ...questionRecord.applinks },
+    question: { name: "applinks", ...questionRecord.applinks, required: true },
   },
   {
     name: "section_improvement",
-    question: { name: "improvement", ...questionRecord.improvement },
+    question: {
+      name: "improvement",
+      ...questionRecord.improvement,
+    },
+    subquestions: [
+      {
+        condition: { has: "Other (please specify at the bottom of the form)" },
+        question: {
+          name: "other_improvement",
+          ...questionRecord.otherImprovement,
+          required: true,
+        },
+      },
+    ],
   },
   {
     name: "section_email",
