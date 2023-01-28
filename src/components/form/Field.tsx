@@ -1,6 +1,7 @@
+import { Fragment } from "react";
 import { Controller } from "react-hook-form";
 import { IQuestionField } from "../../interfaces/IQuestionField";
-import Stack from "../Stack";
+import CheckboxGroup from "./CheckboxGroup";
 import MultiSelect from "./MultiSelect";
 import SingleSelect from "./SingleSelect";
 import TextInput from "./TextInput";
@@ -46,11 +47,25 @@ const renderInput = (question: IQuestionField) => {
           rules={rules}
         />
       );
+    case "checkbox_group":
+      return (
+        <Controller
+          name={question.name}
+          render={({ field }) => (
+            <CheckboxGroup
+              {...question}
+              {...field}
+              defaultValue={field.value}
+            />
+          )}
+          rules={rules}
+        />
+      );
   }
 };
 
 const Field = ({ question }: IProps) => {
-  return <Stack>{renderInput(question)}</Stack>;
+  return <Fragment>{renderInput(question)}</Fragment>;
 };
 
 export default Field;
