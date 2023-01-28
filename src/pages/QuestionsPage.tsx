@@ -12,16 +12,25 @@ interface IQuestionsPageProps {
 
 const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState({});
   const currentQuestionSection = questionSections[questionIndex];
+
+  const gotoNextPage = () => {
+    if (questionIndex >= questionSections.length - 1) onContinue();
+    setQuestionIndex(questionIndex + 1);
+  };
+
   return (
-    <Stack>
+    <Stack css={{ gap: "4.8rem" }}>
       {/* progressbar */}
       <SectionForm
         key={currentQuestionSection.name}
-        name={currentQuestionSection.name}
-        questions={currentQuestionSection.questions}
-        defaultValues={{}}
-        onSubmit={() => {}}
+        section={currentQuestionSection}
+        defaultValues={answers}
+        onSubmit={(values) => {
+          setAnswers((answers) => ({ ...answers, ...values }));
+          gotoNextPage();
+        }}
       />
       <Flex>
         <Button
@@ -35,12 +44,8 @@ const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
           Back
         </Button>
         <Button
-          form=""
-          type="submit"
-          onClick={() => {
-            if (questionIndex >= questionSections.length - 1) onContinue();
-            setQuestionIndex(questionIndex + 1);
-          }}
+          key={currentQuestionSection.name}
+          form={currentQuestionSection.name}
         >
           Continue
         </Button>

@@ -16,14 +16,30 @@ export const questionRecord: Record<string, IQuestionData> = {
   os: {
     questionType: "single_select",
     label: "Please select one",
-    options: getOptionsByName("framework", ["android", "ios"]),
+    options: getOptionsByName("framework", ["ios", "android"]),
   },
-  framework: {
+  iosframework: {
+    questionType: "single_select",
+    label: "What framework is your app developed on?",
+    options: getOptionsByName("framework", [
+      "ios",
+      "ionic",
+      "cordova",
+      "flutter",
+      "unity",
+      "react-native",
+      "xamarin",
+      "xamarin-f",
+      "expo",
+      "native-script",
+      "other",
+    ]),
+  },
+  androidframework: {
     questionType: "single_select",
     label: "What framework is your app developed on?",
     options: getOptionsByName("framework", [
       "android",
-      "ios",
       "ionic",
       "cordova",
       "flutter",
@@ -112,63 +128,75 @@ export const questionRecord: Record<string, IQuestionData> = {
   },
 };
 
+interface ICondition {
+  questionId: string;
+  value: string;
+}
 type IQuestionFormatted = IQuestionField;
 
-interface IQuestionSection {
+export type IQuestionSection = {
   name: `section_${string}`;
-  questions: IQuestionFormatted[];
-}
+} & (
+  | {
+      if: {
+        condition: ICondition;
+        question: IQuestionField;
+      };
+      else: {
+        question: IQuestionField;
+      };
+    }
+  | { question: IQuestionFormatted }
+);
 
 export const questionSections: IQuestionSection[] = [
   {
     name: "section_os",
-    questions: [{ name: "os", ...questionRecord.os, required: true }],
+    question: { name: "os", ...questionRecord.os, required: true },
   },
   {
     name: "section_framework",
-    questions: [
-      { name: "framework", ...questionRecord.framework, required: true },
-      {
-        name: "otherFramework",
-        ...questionRecord.otherFramework,
+    if: {
+      condition: {
+        questionId: "os",
+        value: "ios",
+      },
+      question: {
+        name: "ios_framework",
+        ...questionRecord.iosframework,
         required: true,
       },
-    ],
+    },
+    else: {
+      question: {
+        name: "android_framework",
+        ...questionRecord.androidframework,
+        required: true,
+      },
+    },
   },
   {
     name: "section_sessions",
-    questions: [
-      { name: "sessions", ...questionRecord.sessions, required: true },
-    ],
+    question: { name: "sessions", ...questionRecord.sessions, required: true },
   },
   {
     name: "section_analytics",
-    questions: [
-      { name: "analytics", ...questionRecord.analytics, required: true },
-      {
-        name: "otherAnalytics",
-        ...questionRecord.otherAnalytics,
-        required: true,
-      },
-    ],
+    question: {
+      name: "analytics",
+      ...questionRecord.analytics,
+      required: true,
+    },
   },
   {
     name: "section_applinks",
-    questions: [{ name: "applinks", ...questionRecord.applinks }],
+    question: { name: "applinks", ...questionRecord.applinks },
   },
   {
     name: "section_improvement",
-    questions: [
-      { name: "improvement", ...questionRecord.improvement },
-      {
-        name: "otherImprovement",
-        ...questionRecord.otherImprovement,
-        required: true,
-      },
-    ],
+    question: { name: "improvement", ...questionRecord.improvement },
   },
   {
     name: "section_email",
-    questions: [{ name: "email", ...questionRecord.email, required: true }],
+    question: { name: "email", ...questionRecord.email, required: true },
   },
 ];

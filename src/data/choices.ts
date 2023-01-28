@@ -14,7 +14,7 @@ export const choices: Record<string, Record<string, IChoiceOption>> = {
       image: "",
     },
     ionic: {
-      label: "ionic",
+      label: "Ionic",
       image: "",
     },
     cordova: {
