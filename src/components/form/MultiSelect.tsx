@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IFormField } from "../../interfaces/IFormField";
 import { IMultiSelectQuestionField } from "../../interfaces/IQuestionField";
 import { filterValidKeys } from "../../utils/object";
-import { ResponsiveGrid } from "../ResponsiveGrid";
+import { ResponsiveContainer } from "../ResponsiveContainer";
 import SelectCard from "../SelectCard";
 
 const MultiSelect = ({
@@ -31,7 +31,7 @@ const MultiSelect = ({
   };
 
   return (
-    <ResponsiveGrid {...props}>
+    <ResponsiveContainer {...props}>
       {options.map((option) => (
         <SelectCard
           key={option.value}
@@ -43,7 +43,7 @@ const MultiSelect = ({
           {option.label}
         </SelectCard>
       ))}
-    </ResponsiveGrid>
+    </ResponsiveContainer>
   );
 };
 

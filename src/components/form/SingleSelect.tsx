@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IFormField } from "../../interfaces/IFormField";
 import { ISingleSelectQuestionField } from "../../interfaces/IQuestionField";
-import { ResponsiveGrid } from "../ResponsiveGrid";
+import { ResponsiveContainer } from "../ResponsiveContainer";
 import SelectCard from "../SelectCard";
 
 const SingleSelect = ({
@@ -20,7 +20,7 @@ const SingleSelect = ({
   };
 
   return (
-    <ResponsiveGrid {...props}>
+    <ResponsiveContainer {...props}>
       {options.map((option) => (
         <SelectCard
           key={option.value}
@@ -31,7 +31,7 @@ const SingleSelect = ({
           {option.label}
         </SelectCard>
       ))}
-    </ResponsiveGrid>
+    </ResponsiveContainer>
   );
 };
 

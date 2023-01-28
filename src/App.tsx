@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import StartPage from "./pages/StartPage";
 import QuestionsPage from "./pages/QuestionsPage";
 import EndPage from "./pages/EndPage";
-import AppContext from "./components/AppContext";
+import AppContainer from "./components/AppContainer";
 
 type FormStage = "start" | "questions" | "end";
 
@@ -26,7 +26,7 @@ function App() {
     }
   }, [formStage]);
 
-  return <AppContext>{render()}</AppContext>;
+  return <AppContainer>{render()}</AppContainer>;
 }
 
 export default App;
