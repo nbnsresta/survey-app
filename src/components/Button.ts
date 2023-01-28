@@ -6,6 +6,9 @@ const Button = styled("button", {
   borderRadius: "10rem",
   cursor: "pointer",
   fontWeight: 500,
+  transitionProperty: "background-color, color, border",
+  transitionDuration: "320ms",
+  transitionTimingFunction: "ease-in-out",
 
   variants: {
     variant: {
@@ -13,16 +16,16 @@ const Button = styled("button", {
         color: "white",
         backgroundColor: "$primary",
         "&:hover": {
-          backgroundColor: "#4886f4",
+          backgroundColor: "$midnight",
         },
       },
       secondary: {
         color: "$primary",
-        outline: "1px solid $primary",
+        border: "1px solid $primary",
         backgroundColor: "transparent",
         "&:hover": {
-          backgroundColor: "$primary",
-          color: "white",
+          border: "1px solid $midnight",
+          color: "$midnight",
         },
       },
     },
