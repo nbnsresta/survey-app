@@ -164,7 +164,7 @@ export const questionSections: IQuestionSection[] = [
   },
   {
     name: "section_applinks",
-    question: { name: "applinks", ...questionRecord.applinks, required: true },
+    question: { name: "applinks", ...questionRecord.applinks },
   },
   {
     name: "section_improvement",
