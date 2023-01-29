@@ -57,10 +57,10 @@ export const choices: Record<string, IChoiceOption> = {
     label: "01 - 49",
   },
   mid: {
-    label: "50-100",
+    label: "50 - 100",
   },
   high: {
-    label: "101-200",
+    label: "101 - 200",
   },
 
   google: {

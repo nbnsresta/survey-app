@@ -6,15 +6,15 @@ interface IProps extends ITextQuestionField, IFormField<string> {}
 
 const BaseInput = styled("input", {
   outline: "none",
-  borderStyle: "solid",
-  width: "32rem",
-  height: "2.4rem",
-  padding: "0.8rem 1.6rem",
+  width: "80%",
+  maxWidth: "72rem",
+  height: "6.4rem",
+  padding: "0rem 2.4rem",
   fontSize: "1.4rem",
   color: "$midnight",
   fontFamily: "inherit",
-  borderRadius: "0.4rem",
-  borderWidth: "2px",
+  borderStyle: "solid",
+  borderWidth: "0 0 0.2rem 0",
   borderColor: "#cccccc",
   overflowX: "clip",
 
