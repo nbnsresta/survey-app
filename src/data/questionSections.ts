@@ -110,16 +110,16 @@ export const questionRecord: Record<string, IQuestionData> = {
   otherFramework: {
     questionType: "text",
     placeholder: "Framework of choice",
-    label: "Mention",
+    label: "Other Framework",
   },
   otherAnalytics: {
     questionType: "text",
-    hint: "Please include a Google Play Store or App Store link to your app (if available)",
+    placeholder: "Other Analytics",
     label: "Other Analytics",
   },
   otherImprovement: {
     questionType: "text",
-    placeholder: "State your concern",
+    placeholder: "Please state your concern",
     label: "Other",
   },
 };
@@ -149,6 +149,18 @@ export const questionSections: IQuestionSection[] = [
         required: true,
       },
     },
+    subquestions: [
+      {
+        condition: {
+          equals: "other",
+        },
+        question: {
+          name: "other_framework",
+          ...questionRecord.otherFramework,
+          required: true,
+        },
+      },
+    ],
   },
   {
     name: "section_sessions",
@@ -161,6 +173,18 @@ export const questionSections: IQuestionSection[] = [
       ...questionRecord.analytics,
       required: true,
     },
+    subquestions: [
+      {
+        condition: {
+          has: "others",
+        },
+        question: {
+          name: "other_analytics",
+          ...questionRecord.otherAnalytics,
+          required: true,
+        },
+      },
+    ],
   },
   {
     name: "section_applinks",
