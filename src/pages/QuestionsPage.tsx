@@ -56,30 +56,43 @@ const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
           gotoNextPage();
         }}
       />
-      <Flex
-        css={{
-          justifyContent: "space-between",
-          maxWidth: "72rem",
-          width: "100%",
-        }}
-      >
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={() => {
-            if (questionIndex <= 0) onBack();
-            setQuestionIndex(questionIndex - 1);
+      {questionIndex < questionSections.length - 1 ? (
+        <Flex
+          css={{
+            justifyContent: "space-between",
+            maxWidth: "72rem",
+            width: "100%",
           }}
         >
-          Back
-        </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={() => {
+              scrollToTop();
+              if (questionIndex <= 0) {
+                return onBack();
+              }
+              setQuestionIndex(questionIndex - 1);
+            }}
+          >
+            Back
+          </Button>
+          <Button
+            key={currentQuestionSection.name}
+            form={currentQuestionSection.name}
+          >
+            Continue
+          </Button>
+        </Flex>
+      ) : (
         <Button
+          size="lg"
           key={currentQuestionSection.name}
           form={currentQuestionSection.name}
         >
-          Continue
+          Submit Survey
         </Button>
-      </Flex>
+      )}
     </Stack>
   );
 };
