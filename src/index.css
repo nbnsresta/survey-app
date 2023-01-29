@@ -1,7 +1,8 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 10px;
-  line-height: 24px;
+  /* font-size: calc(0.245vw + 6px); */
+  /* font-size: calc(0.2vw + 6.4px); */
+  font-size: calc(0.22vw + 6.8px);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;

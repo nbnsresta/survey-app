@@ -15,6 +15,7 @@ const BaseInput = styled("input", {
   fontFamily: "Roboto, sans-serif",
   borderStyle: "solid",
   borderWidth: "0 0 0.2rem 0",
+  borderRadius: "0.4rem",
   borderColor: "#cccccc",
   overflowX: "clip",
 

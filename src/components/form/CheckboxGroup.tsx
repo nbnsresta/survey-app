@@ -44,7 +44,7 @@ const CheckboxGroup = ({
             alignItems: "start",
             gap: "2.4rem",
             fontWeight: 400,
-            lineHeight: "24px",
+            lineHeight: "2.4rem",
           }}
         >
           <input
@@ -65,7 +65,7 @@ const CheckboxGroup = ({
             css={{
               marginTop: "0.4rem",
               backgroundColor: checkedRecord[option] ? "$primary" : "white",
-              border: "1px solid $primary",
+              border: "0.1rem solid $primary",
             }}
           />
           <span>{option}</span>

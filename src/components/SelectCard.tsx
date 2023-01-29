@@ -2,7 +2,7 @@ import { styled } from "../theme";
 import { ComponentProps } from "react";
 
 const Card = styled("button", {
-  borderRadius: "4px",
+  borderRadius: "0.4rem",
   border: "none",
   fontFamily: "Poppins",
   background: "white",
@@ -10,7 +10,7 @@ const Card = styled("button", {
   cursor: "pointer",
 
   "&:focus-visible": {
-    outline: "2px solid -webkit-focus-ring-color",
+    outline: "0.2rem solid -webkit-focus-ring-color",
   },
 });
 
@@ -20,7 +20,10 @@ interface IProps extends ComponentProps<typeof Card> {
 
 const SelectCard = ({ selected, ...props }: IProps) => {
   return (
-    <Card css={selected ? { outline: "2px solid $primary" } : {}} {...props} />
+    <Card
+      css={selected ? { outline: "0.2rem solid $primary" } : {}}
+      {...props}
+    />
   );
 };
 

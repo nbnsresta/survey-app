@@ -4,7 +4,7 @@ const Subtext = styled("p", {
   fontFamily: "Roboto",
   fontWeight: 400,
   fontSize: "$md",
-  lineHeight: "28px",
+  lineHeight: "2.8rem",
   color: "$midnight",
 });
 
