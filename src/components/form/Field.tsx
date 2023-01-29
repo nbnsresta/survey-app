@@ -23,7 +23,9 @@ const renderInput = (question: IQuestionField) => {
       return (
         <Controller
           name={question.name}
-          render={({ field }) => <TextInput {...question} {...field} />}
+          render={({ field: { value, ...field } }) => (
+            <TextInput {...question} {...field} defaultValue={value} />
+          )}
           rules={rules}
         />
       );
@@ -31,8 +33,8 @@ const renderInput = (question: IQuestionField) => {
       return (
         <Controller
           name={question.name}
-          render={({ field }) => (
-            <SingleSelect {...question} {...field} defaultValue={field.value} />
+          render={({ field: { value, ...field } }) => (
+            <SingleSelect {...question} {...field} defaultValue={value} />
           )}
           rules={rules}
         />
@@ -41,8 +43,8 @@ const renderInput = (question: IQuestionField) => {
       return (
         <Controller
           name={question.name}
-          render={({ field }) => (
-            <MultiSelect {...question} {...field} defaultValue={field.value} />
+          render={({ field: { value, ...field } }) => (
+            <MultiSelect {...question} {...field} defaultValue={value} />
           )}
           rules={rules}
         />
@@ -51,12 +53,8 @@ const renderInput = (question: IQuestionField) => {
       return (
         <Controller
           name={question.name}
-          render={({ field }) => (
-            <CheckboxGroup
-              {...question}
-              {...field}
-              defaultValue={field.value}
-            />
+          render={({ field: { value, ...field } }) => (
+            <CheckboxGroup {...question} {...field} defaultValue={value} />
           )}
           rules={rules}
         />
