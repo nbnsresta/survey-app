@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useFormContext } from "react-hook-form";
 import { ISubquestion } from "../../interfaces/ISubquestion";
+import { filterSubQuestionByCondition } from "../../utils/filterSubquestionByCondition";
 import Field from "./Field";
 
 const Subquestion = ({
@@ -15,18 +16,7 @@ const Subquestion = ({
 
   const validateSubquestionCondition = (subquestion: ISubquestion): boolean => {
     const primaryValue = watch(primaryQuestionName);
-    if ("equals" in subquestion.condition) {
-      return subquestion.condition.equals === primaryValue;
-    }
-    if ("in" in subquestion.condition) {
-      return subquestion.condition.in.includes(primaryValue);
-    }
-    if ("has" in subquestion.condition) {
-      return Array.isArray(primaryValue)
-        ? primaryValue.includes(subquestion.condition.has)
-        : false;
-    }
-    return false;
+    return filterSubQuestionByCondition(primaryValue, subquestion.condition);
   };
 
   return (
