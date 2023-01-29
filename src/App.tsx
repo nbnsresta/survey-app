@@ -11,7 +11,10 @@ function App() {
 
   const gotoStart = useCallback(() => setFormStage("start"), []);
   const gotoQuestions = useCallback(() => setFormStage("questions"), []);
-  const gotoEnd = useCallback(() => setFormStage("end"), []);
+  const onQuestionSubmission = useCallback((answers: object) => {
+    console.log(answers);
+    setFormStage("end");
+  }, []);
 
   const render = useCallback(() => {
     switch (formStage) {
@@ -19,7 +22,9 @@ function App() {
         return <StartPage onContinue={gotoQuestions} />;
 
       case "questions":
-        return <QuestionsPage onBack={gotoStart} onContinue={gotoEnd} />;
+        return (
+          <QuestionsPage onBack={gotoStart} onContinue={onQuestionSubmission} />
+        );
 
       case "end":
         return <EndPage />;

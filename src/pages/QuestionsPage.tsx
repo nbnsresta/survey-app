@@ -6,10 +6,11 @@ import Progressbar from "../components/Progressbar";
 import Stack from "../components/Stack";
 import { questionSections } from "../data/questionSections";
 import { styled } from "../theme";
+import { parseAnswers } from "../utils/parseAnswers";
 
 interface IQuestionsPageProps {
   onBack: VoidFunction;
-  onContinue: VoidFunction;
+  onContinue: (answers: object) => void;
 }
 
 const QuestionCount = styled("p", {
@@ -28,7 +29,6 @@ const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
   const currentQuestionSection = questionSections[questionIndex];
 
   const gotoNextPage = () => {
-    if (questionIndex >= questionSections.length - 1) onContinue();
     setQuestionIndex(questionIndex + 1);
   };
 
@@ -45,11 +45,23 @@ const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
         section={currentQuestionSection}
         defaultValues={answers}
         onSubmit={(values) => {
-          setAnswers((answers) => ({ ...answers, ...values }));
+          const summedAnswers = { ...answers, ...values };
+          setAnswers(summedAnswers);
+          if (questionIndex >= questionSections.length - 1) {
+            return onContinue(summedAnswers);
+          }
+
+          // scroll to top;
           gotoNextPage();
         }}
       />
-      <Flex>
+      <Flex
+        css={{
+          justifyContent: "space-between",
+          maxWidth: "72rem",
+          width: "100%",
+        }}
+      >
         <Button
           type="button"
           variant="secondary"

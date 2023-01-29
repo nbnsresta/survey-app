@@ -1,15 +1,18 @@
 import { IQuestionField } from "./IQuestionField";
 
+export type EqualsCondition = {
+  equals: string;
+};
+
+export type InCondition = {
+  in: string[];
+};
+
+export type HasCondition = {
+  has: string;
+};
+
 export type ISubquestion = {
   question: IQuestionField;
-  condition:
-    | {
-        equals: string;
-      }
-    | {
-        in: string[];
-      }
-    | {
-        has: string;
-      };
+  condition: EqualsCondition | InCondition | HasCondition;
 };

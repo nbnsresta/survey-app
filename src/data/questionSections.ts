@@ -2,13 +2,9 @@ import { IQuestionData } from "../interfaces/IQuestionData";
 import { IQuestionSection } from "../interfaces/IQuestionSection";
 import { choices } from "./choices";
 
-const getOptionsByName = (
-  type: keyof typeof choices,
-  questionNames: string[]
-) => {
-  const category = choices[type];
+const getOptionsByName = (questionNames: string[]) => {
   return questionNames.map((name) => {
-    return { ...category[name], value: name };
+    return { ...choices[name], value: name };
   });
 };
 
@@ -16,12 +12,12 @@ export const questionRecord: Record<string, IQuestionData> = {
   os: {
     questionType: "single_select",
     label: "Please select one",
-    options: getOptionsByName("framework", ["ios", "android"]),
+    options: getOptionsByName(["ios", "android"]),
   },
-  iosframework: {
+  ios_framework: {
     questionType: "single_select",
     label: "What framework is your app developed on?",
-    options: getOptionsByName("framework", [
+    options: getOptionsByName([
       "ios",
       "ionic",
       "cordova",
@@ -35,10 +31,10 @@ export const questionRecord: Record<string, IQuestionData> = {
       "other",
     ]),
   },
-  androidframework: {
+  android_framework: {
     questionType: "single_select",
     label: "What framework is your app developed on?",
-    options: getOptionsByName("framework", [
+    options: getOptionsByName([
       "android",
       "ionic",
       "cordova",
@@ -56,13 +52,13 @@ export const questionRecord: Record<string, IQuestionData> = {
     questionType: "single_select",
     label: "How many monthly sessions does each app receive?",
     hint: "A session is every time a user opens the app, uses it, and when they put the app into the background, the session ends.",
-    options: getOptionsByName("session", ["low", "mid", "high"]),
+    options: getOptionsByName(["low", "mid", "high"]),
   },
   analytics: {
     questionType: "multi_select",
     label: "What analytics tools are you currently using with your app?",
     hint: "Please select all that apply",
-    options: getOptionsByName("analytics", [
+    options: getOptionsByName([
       "google",
       "firebase",
       "adobe",
@@ -142,14 +138,14 @@ export const questionSections: IQuestionSection[] = [
       },
       question: {
         name: "ios_framework",
-        ...questionRecord.iosframework,
+        ...questionRecord.ios_framework,
         required: true,
       },
     },
     else: {
       question: {
         name: "android_framework",
-        ...questionRecord.androidframework,
+        ...questionRecord.android_framework,
         required: true,
       },
     },
