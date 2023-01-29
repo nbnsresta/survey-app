@@ -127,7 +127,7 @@ export const questionRecord: Record<string, IQuestionData> = {
 export const questionSections: IQuestionSection[] = [
   {
     name: "section_os",
-    question: { name: "os", ...questionRecord.os, required: true },
+    question: { name: "os", ...questionRecord.os, required: true, size: "md" },
   },
   {
     name: "section_framework",

@@ -8,6 +8,7 @@ import {
 export type IBaseQuestionField = {
   name: string;
   required?: boolean;
+  size?: "sm" | "md";
 };
 
 export type ITextQuestionField = IBaseQuestionField & ITextQuestionData;

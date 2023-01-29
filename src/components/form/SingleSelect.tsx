@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IFormField } from "../../interfaces/IFormField";
 import { ISingleSelectQuestionField } from "../../interfaces/IQuestionField";
+import CardContent from "../CardContent";
 import { ResponsiveContainer } from "../ResponsiveContainer";
 import SelectCard from "../SelectCard";
 
@@ -8,6 +9,7 @@ const SingleSelect = ({
   defaultValue,
   onChange,
   options,
+  size,
 }: ISingleSelectQuestionField & IFormField<string>) => {
   const [value, setValue] = useState(defaultValue);
 
@@ -25,7 +27,7 @@ const SingleSelect = ({
           selected={option.value === value}
           onClick={handleClick(option.value)}
         >
-          {option.label}
+          <CardContent content={option} size={size} />
         </SelectCard>
       ))}
     </ResponsiveContainer>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IFormField } from "../../interfaces/IFormField";
 import { IMultiSelectQuestionField } from "../../interfaces/IQuestionField";
 import { filterValidKeys } from "../../utils/object";
+import CardContent from "../CardContent";
 import { ResponsiveContainer } from "../ResponsiveContainer";
 import SelectCard from "../SelectCard";
 
@@ -11,6 +12,7 @@ const MultiSelect = ({
   required,
   defaultValue,
   onChange,
+  size,
   ...props
 }: IMultiSelectQuestionField & IFormField<string[]>) => {
   const [checkedRecord, setCheckedRecord] = useState<Record<string, boolean>>(
@@ -40,7 +42,7 @@ const MultiSelect = ({
           selected={checkedRecord[option.value]}
           onClick={handleClick(option.value)}
         >
-          {option.label}
+          <CardContent content={option} size={size} />
         </SelectCard>
       ))}
     </ResponsiveContainer>
