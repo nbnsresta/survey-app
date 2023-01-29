@@ -5,12 +5,9 @@ import { ResponsiveContainer } from "../ResponsiveContainer";
 import SelectCard from "../SelectCard";
 
 const SingleSelect = ({
-  name,
-  required,
   defaultValue,
   onChange,
   options,
-  ...props
 }: ISingleSelectQuestionField & IFormField<string>) => {
   const [value, setValue] = useState(defaultValue);
 
@@ -20,7 +17,7 @@ const SingleSelect = ({
   };
 
   return (
-    <ResponsiveContainer {...props}>
+    <ResponsiveContainer>
       {options.map((option) => (
         <SelectCard
           key={option.value}

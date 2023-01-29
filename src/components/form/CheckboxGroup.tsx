@@ -8,15 +8,16 @@ import Flex from "../Flex";
 
 const Grid = styled(Box, {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  gridTemplateColumns: "repeat(auto-fit, 40rem)",
   textAlign: "start",
-  maxWidth: "72rem",
+  maxWidth: "100%",
   gap: "2.4rem 4.8rem",
 });
 
 const Checkbox = styled("span", {
   height: "1.6rem",
   minWidth: "1.6rem",
+  transition: "background-color 300ms ease-in-out",
 });
 
 const CheckboxGroup = ({
@@ -62,6 +63,7 @@ const CheckboxGroup = ({
           />
           <Checkbox
             css={{
+              marginTop: "0.4rem",
               backgroundColor: checkedRecord[option] ? "$primary" : "white",
               border: "1px solid $primary",
             }}

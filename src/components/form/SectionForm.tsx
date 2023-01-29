@@ -31,7 +31,7 @@ const SectionForm = ({ section, defaultValues, onSubmit }: IProps) => {
       <Stack
         as="form"
         id={section.name}
-        css={{ rowGap: "4.8rem", alignItems: "center" }}
+        css={{ rowGap: "4.8rem", alignItems: "center", width: "100%" }}
         onSubmit={methods.handleSubmit(onSubmit)}
       >
         <Stack

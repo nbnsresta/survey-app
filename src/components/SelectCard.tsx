@@ -5,7 +5,6 @@ const Card = styled("button", {
   display: "flex",
   padding: "2.4rem 2.8rem",
   fontWeight: 600,
-  // font-size: 3.2rem,
   lineHeight: "4rem",
   color: "$midnight",
   borderRadius: "4px",
@@ -18,11 +17,7 @@ const Card = styled("button", {
   width: "32rem",
   height: "12rem",
   alignItems: "center",
-  // "&:hover": {
-  //   transform: "scale(1.08)",
-  // },
   "&:focus-visible": {
-    //   transform: "scale(1.08)",
     outline: "2px solid -webkit-focus-ring-color",
   },
 
