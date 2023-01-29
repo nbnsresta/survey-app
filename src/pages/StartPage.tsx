@@ -27,14 +27,19 @@ const RequestText = styled("p", {
 
 const StartPage = ({ onContinue }: IStartPageProps) => {
   return (
-    <Stack css={{ alignItems: "center", gap: "2.4rem" }}>
+    <Stack css={{ marginTop: "2.8rem", alignItems: "center", gap: "2.4rem" }}>
       <Heading>Thank you for requesting a UXCam quote.</Heading>
       <Subtext>Just one more thing before you go:</Subtext>
       <RequestText css={{ marginTop: "2.4rem" }}>
         To help us tailor a plan to your needs, please answer the following
         questions. It will only take 2 minutes!
       </RequestText>
-      <Button type="button" size="lg" onClick={onContinue}>
+      <Button
+        type="button"
+        size="lg"
+        css={{ marginTop: "4rem" }}
+        onClick={onContinue}
+      >
         Continue
       </Button>
     </Stack>

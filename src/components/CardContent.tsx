@@ -5,7 +5,6 @@ import FlexCenter from "./FlexCenter";
 
 const BaseTextContent = styled("div", {
   display: "flex",
-  fontWeight: 600,
   alignItems: "center",
   color: "$midnight",
   height: "12rem",
@@ -15,12 +14,15 @@ const BaseTextContent = styled("div", {
     size: {
       sm: {
         fontSize: "2.4rem",
+        fontWeight: 500,
       },
       md: {
         fontSize: "3.2rem",
+        fontWeight: 500,
       },
       lg: {
         fontSize: "5.4rem",
+        fontWeight: 600,
       },
     },
   },
@@ -37,6 +39,7 @@ const Image = styled("img", {
 
 export const TextContent = styled(BaseTextContent, {
   padding: "0 2.4rem",
+  fontWeight: 600,
 });
 
 interface IProps {

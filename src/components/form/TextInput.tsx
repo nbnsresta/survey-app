@@ -12,7 +12,7 @@ const BaseInput = styled("input", {
   padding: "0rem 2.4rem",
   fontSize: "1.4rem",
   color: "$midnight",
-  fontFamily: "inherit",
+  fontFamily: "Roboto, sans-serif",
   borderStyle: "solid",
   borderWidth: "0 0 0.2rem 0",
   borderColor: "#cccccc",

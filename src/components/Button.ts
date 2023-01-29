@@ -21,10 +21,10 @@ const Button = styled("button", {
       },
       secondary: {
         color: "$primary",
-        border: "1px solid $primary",
+        border: "2px solid $primary",
         backgroundColor: "transparent",
         "&:hover": {
-          border: "1px solid $midnight",
+          border: "2px solid $midnight",
           color: "$midnight",
         },
       },

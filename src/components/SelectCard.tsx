@@ -4,6 +4,7 @@ import { ComponentProps } from "react";
 const Card = styled("button", {
   borderRadius: "4px",
   border: "none",
+  fontFamily: "Poppins",
   background: "white",
   outline: 0,
   cursor: "pointer",
