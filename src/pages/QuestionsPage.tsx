@@ -6,7 +6,7 @@ import Progressbar from "../components/Progressbar";
 import Stack from "../components/Stack";
 import { questionSections } from "../data/questionSections";
 import { styled } from "../theme";
-import { parseAnswers } from "../utils/parseAnswers";
+import { scrollToTop } from "../utils/scrollToTop";
 
 interface IQuestionsPageProps {
   onBack: VoidFunction;
@@ -29,6 +29,7 @@ const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
   const currentQuestionSection = questionSections[questionIndex];
 
   const gotoNextPage = () => {
+    scrollToTop();
     setQuestionIndex(questionIndex + 1);
   };
 
@@ -47,11 +48,11 @@ const QuestionsPage = ({ onBack, onContinue }: IQuestionsPageProps) => {
         onSubmit={(values) => {
           const summedAnswers = { ...answers, ...values };
           setAnswers(summedAnswers);
+          scrollToTop();
+
           if (questionIndex >= questionSections.length - 1) {
             return onContinue(summedAnswers);
           }
-
-          // scroll to top;
           gotoNextPage();
         }}
       />

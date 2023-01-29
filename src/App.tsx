@@ -3,16 +3,26 @@ import StartPage from "./pages/StartPage";
 import QuestionsPage from "./pages/QuestionsPage";
 import EndPage from "./pages/EndPage";
 import AppContainer from "./components/AppContainer";
+import { scrollToTop } from "./utils/scrollToTop";
 
 type FormStage = "start" | "questions" | "end";
 
 function App() {
   const [formStage, setFormStage] = useState<FormStage>("start");
 
-  const gotoStart = useCallback(() => setFormStage("start"), []);
-  const gotoQuestions = useCallback(() => setFormStage("questions"), []);
+  const gotoStart = useCallback(() => {
+    scrollToTop();
+    setFormStage("start");
+  }, []);
+
+  const gotoQuestions = useCallback(() => {
+    scrollToTop();
+    setFormStage("questions");
+  }, []);
+
   const onQuestionSubmission = useCallback((answers: object) => {
     console.log(answers);
+    scrollToTop();
     setFormStage("end");
   }, []);
 
