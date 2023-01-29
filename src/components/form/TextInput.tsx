@@ -29,7 +29,7 @@ const BaseInput = styled("input", {
   },
 });
 
-const TextInput = ({ name, onChange, type, ...props }: IProps) => {
+const TextInput = ({ size, name, onChange, type, ...props }: IProps) => {
   return (
     <BaseInput
       name={name}
