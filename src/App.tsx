@@ -4,6 +4,7 @@ import QuestionsPage from "./pages/QuestionsPage";
 import EndPage from "./pages/EndPage";
 import AppContainer from "./components/AppContainer";
 import { scrollToTop } from "./utils/scrollToTop";
+import { parseAnswers } from "./utils/parseAnswers";
 
 type FormStage = "start" | "questions" | "end";
 
@@ -21,7 +22,7 @@ function App() {
   }, []);
 
   const onQuestionSubmission = useCallback((answers: object) => {
-    console.log(answers);
+    console.log(parseAnswers(answers));
     scrollToTop();
     setFormStage("end");
   }, []);
